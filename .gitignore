@@ -1,0 +1,3 @@
+# Ignore all files in bundle, which will be made into a separate repo,
+# containing *only* submodules.
+bundle/*
