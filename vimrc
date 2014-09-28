@@ -207,7 +207,11 @@ nnoremap <silent> <Leader>sa
 			\ :setlocal nospell<CR>
 
 "For exceeding 80 characters in a line"
-set colorcolumn=80
+if exists('+colorcolumn')
+	set colorcolumn=80
+else
+	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 
 "For setting the search match colour appropriately"
 highlight Search ctermbg=011 ctermfg=000
