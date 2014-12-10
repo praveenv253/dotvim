@@ -146,16 +146,16 @@ nnoremap <Leader>c <Nop>
 vnoremap <Leader>c <Nop>
 
 "For moving up and down faster, but not as fast as PgUp and PgDn"
-nnoremap <C-k> 3k
-nnoremap <C-j> 3j
-vnoremap <C-k> 3k
-vnoremap <C-j> 3j
-nnoremap <C-Up> 3k
-nnoremap <C-Down> 3j
-inoremap <C-Up> <C-o>3k
-inoremap <C-Down> <C-o>3j
-vnoremap <C-Up> 3k
-vnoremap <C-Down> 3j
+nmap <C-k> 3k
+nmap <C-j> 3j
+vmap <C-k> 3k
+vmap <C-j> 3j
+nmap <C-Up> 3k
+nmap <C-Down> 3j
+imap <C-Up> <C-o>3k
+imap <C-Down> <C-o>3j
+vmap <C-Up> 3k
+vmap <C-Down> 3j
 
 "For moving the screen, but not the cursor..."
 nnoremap <S-Up> <C-y>
