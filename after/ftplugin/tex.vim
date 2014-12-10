@@ -1,3 +1,5 @@
 hi link Delimiter     Operator
-set nocindent
-set nosmartindent
+setlocal noautoindent
+setlocal nocindent
+setlocal nosmartindent
+setlocal indentexpr=
