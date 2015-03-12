@@ -213,6 +213,10 @@ else
 	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
+"For adding file templates from .vim/templates
+au BufNewFile * :silent! exec ":0r ".$HOME."/.vim/templates/template.".&ft.
+			\ " | :normal Gdd$"
+
 "For setting the search match colour appropriately"
 highlight Search ctermbg=011 ctermfg=000
 
