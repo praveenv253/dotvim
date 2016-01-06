@@ -213,7 +213,7 @@ else
 	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
-"For adding file templates from .vim/templates
+"For adding file templates from .vim/templates"
 au BufNewFile * :silent! exec ":0r ".$HOME."/.vim/templates/template.".&ft.
 			\ " | :normal Gdd$"
 
@@ -223,3 +223,11 @@ highlight Search ctermbg=011 ctermfg=000
 "For inverting colours on selection"
 highlight clear Visual
 highlight Visual cterm=reverse
+
+"LaTeX shortcuts"
+nnoremap <silent> <Leader>le i\begin{enumerate}\end{enumerate}O\item 
+nnoremap <silent> <Leader>li i\begin{itemize}\end{itemize}O\item 
+nnoremap <silent> <Leader>lq i\begin{equation}\end{equation}O
+nnoremap <silent> <Leader>l8q i\begin{equation*}\end{equation*}O
+nnoremap <silent> <Leader>la i\begin{align}\end{align}O
+nnoremap <silent> <Leader>l8a i\begin{align*}\end{align*}O
