@@ -7,7 +7,7 @@ endif
 let g:colors_name = "vader"
 
 hi Normal                           ctermfg=252
-hi Comment                          ctermfg=244
+hi Comment             cterm=italic ctermfg=244
 hi String                           ctermfg=076
 hi Number                           ctermfg=196
 hi Constant                         ctermfg=208
