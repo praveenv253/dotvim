@@ -12,6 +12,8 @@ set tabstop=4
 set shiftwidth=4
 "Do C-style indentation automatically"
 set cindent
+"Make backspace work like in most other apps"
+set backspace=indent,eol,start
 "Highlight search results"
 set hlsearch
 "Ignore case while searching..."
@@ -135,6 +137,9 @@ inoremap <C-u> <Esc>viwUea
 "For clearing a line without deleting it in normal mode"
 "- The escape helps exit visual mode when the line is already empty"
 nnoremap dl 0v$hx<Esc>
+
+"For attaching an indented line to the end of the previous line (with a space)"
+nnoremap d<Backspace> ^d0i<Backspace> <Esc>
 
 "For opening vimrc quickly"
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
