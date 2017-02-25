@@ -46,6 +46,8 @@ set nofoldenable
 set modeline
 "Treat all sh files as bash scripts for syntax highlighting"
 let g:is_bash = 1
+"Treat all tex files as latex files"
+let g:tex_flavor = "latex"
 
 "Switch on syntax highlighting"
 syntax on
