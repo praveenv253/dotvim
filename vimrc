@@ -238,3 +238,7 @@ nnoremap <silent> <Leader>lq i\begin{equation}\end{equation}O
 nnoremap <silent> <Leader>l8q i\begin{equation*}\end{equation*}O
 nnoremap <silent> <Leader>la i\begin{align}\end{align}O
 nnoremap <silent> <Leader>l8a i\begin{align*}\end{align*}O
+
+"Shortcut for nonumber"
+nnoremap <Leader>n :set number<CR>
+nnoremap <Leader>nn :set nonumber<CR>
