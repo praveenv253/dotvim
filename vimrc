@@ -96,6 +96,11 @@ nmap <silent> <M-Right> >,
 imap <silent> <M-Left> <C-o><,
 imap <silent> <M-Right> <C-o>>,
 
+"For jumping to the last position when reopening a file
+if has("autocmd")
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 "For when you forget to open a file with sudo"
 noremap <Leader>ww :w !sudo tee % >/dev/null<CR>
 
