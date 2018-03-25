@@ -48,6 +48,10 @@ set modeline
 let g:is_bash = 1
 "Treat all tex files as latex files"
 let g:tex_flavor = "latex"
+"Enable Powerline"
+set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim
+"Always show statusline"
+set laststatus=2
 
 "Switch on syntax highlighting"
 syntax on
