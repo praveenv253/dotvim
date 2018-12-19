@@ -16,12 +16,8 @@ Set up as follows:
     ln -s .vim/vimrc .vimrc
     ```
 
-3. Copy the file for powerline fonts
-    ```
-    mkdir -p .fonts
-    cd .fonts
-    ln -s ~/.vim/DejaVuSansMono-Powerline.ttf
-    ```
+3. Install [powerline](https://powerline.readthedocs.io/en/master/installation.html) and [powerline fonts](https://powerline.readthedocs.io/en/master/installation/linux.html#fonts-installation) using the Fontconfig method
+
 
 4. Clone the bundle repository
     ```

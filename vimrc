@@ -48,8 +48,9 @@ set modeline
 let g:is_bash = 1
 "Treat all tex files as latex files"
 let g:tex_flavor = "latex"
-"Enable Powerline"
-set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim
+"Enable Powerline (assumes powerline has been installed using"
+"     pip3 install --user powerline-status"
+set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
 "Always show statusline"
 set laststatus=2
 
