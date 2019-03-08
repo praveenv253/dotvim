@@ -60,6 +60,9 @@ hi link makeTarget       Statement
 hi link makeIdent        Type
 hi link makeCommands     String
 
+" Matlab-specific
+hi link matlabCellComment Comment
+
 " Tex-specific
 hi link texSection       Statement
 hi link texStatement     Type
