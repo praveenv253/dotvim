@@ -89,6 +89,8 @@ inoremap <silent> <Down> <C-o>gj
 "Make Ctrl+Left and Ctrl+Right move through words"
 nnoremap <silent> <C-Left> b
 nnoremap <silent> <C-Right> w
+"For moving to the end of a word, backwards
+nnoremap <silent> E ge
 
 "Make H and L act like Home and End"
 nnoremap H ^
@@ -156,7 +158,7 @@ nnoremap d<Backspace> ^d0i<Backspace> <Esc>
 "For opening vimrc quickly"
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 "For loading vimrc changes quickly"
-nnoremap <Leader>sv :source $MYVIMRC<CR>
+nmap <Leader>sv :source $MYVIMRC<CR><C-l>
 
 "For preventing an incomplete comment from deleting text"
 nnoremap <Leader>c <Nop>
@@ -248,6 +250,11 @@ nnoremap <silent> <Leader>lq i\begin{equation}\end{equation}O
 nnoremap <silent> <Leader>l8q i\begin{equation*}\end{equation*}O
 nnoremap <silent> <Leader>la i\begin{align}\end{align}O
 nnoremap <silent> <Leader>l8a i\begin{align*}\end{align*}O
+nnoremap <silent> <Leader>ls viw<ESC>`>a}<ESC>`<i\emph{<ESC>
+vnoremap <silent> <Leader>ls <ESC>`>a}<ESC>`<i\emph{<ESC>
+"Format Google Scholar citations"
+vmap <silent> <Leader>fc :s/^  /\t/g<CR>gv:s/=/ = /g<CR>gv:s/[{}]/"/g<CR><C-l>
+nmap <silent> <Leader>lt ^f{lgUl/\d<CR>4lgUl<C-l>
 
 "Shortcut for nonumber"
 nnoremap <Leader>n :set number<CR>
