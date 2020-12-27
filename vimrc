@@ -250,8 +250,8 @@ nnoremap <silent> <Leader>lq i\begin{equation}\end{equation}O
 nnoremap <silent> <Leader>l8q i\begin{equation*}\end{equation*}O
 nnoremap <silent> <Leader>la i\begin{align}\end{align}O
 nnoremap <silent> <Leader>l8a i\begin{align*}\end{align*}O
-nnoremap <silent> <Leader>ls viw<ESC>`>a}<ESC>`<i\emph{<ESC>
-vnoremap <silent> <Leader>ls <ESC>`>a}<ESC>`<i\emph{<ESC>
+nnoremap <silent> <Leader>ls viw<ESC>`>a}<ESC>hviw<ESC>`<i\emph{<ESC>
+vnoremap <silent> <Leader>ls <ESC>`<i\emph{<ESC>`>6la}<ESC>
 "Format Google Scholar citations"
 vmap <silent> <Leader>fc :s/^  /\t/g<CR>gv:s/=/ = /g<CR>gv:s/[{}]/"/g<CR><C-l>
 nmap <silent> <Leader>lt ^f{lgUl/\d<CR>4lgUl<C-l>
