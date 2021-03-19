@@ -50,9 +50,11 @@ let g:is_bash = 1
 let g:tex_flavor = "latex"
 "Enable Powerline (assumes powerline has been installed using"
 "     pip3 install --user powerline-status"
-set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
+set rtp+=$HOME/.local/lib/python3.8/site-packages/powerline/bindings/vim
 "Always show statusline"
 set laststatus=2
+"Change leader for vimtex insert mode mappings from '`' to '#'"
+let g:vimtex_imaps_leader = "#"
 
 "Switch on syntax highlighting"
 syntax on
@@ -179,6 +181,8 @@ vmap <C-Down> 3j
 "For moving the screen, but not the cursor..."
 nnoremap <S-Up> <C-y>
 nnoremap <S-Down> <C-e>
+vnoremap <S-Up> <C-y>
+vnoremap <S-Down> <C-e>
 inoremap <S-Up> <C-o><C-y>
 inoremap <S-Down> <C-o><C-e>
 
@@ -187,6 +191,14 @@ nnoremap <C-w><C-Left>  <C-w><Left>
 nnoremap <C-w><C-Right> <C-w><Right>
 nnoremap <C-w><C-Up>    <C-w><Up>
 nnoremap <C-w><C-Down>  <C-w><Down>
+
+"For disabling accidental Ctrl-Home and Ctrl-End presses"
+nnoremap <C-End> <Nop>
+nnoremap <C-Home> <Nop>
+inoremap <C-End> <Nop>
+inoremap <C-Home> <Nop>
+vnoremap <C-End> <Nop>
+vnoremap <C-Home> <Nop>
 
 "For switching paste mode on/off during insert"
 "Otherwise, indents will cascade"
@@ -246,6 +258,9 @@ highlight Visual cterm=reverse
 "LaTeX shortcuts"
 nnoremap <silent> <Leader>le i\begin{enumerate}\end{enumerate}O\item 
 nnoremap <silent> <Leader>li i\begin{itemize}\end{itemize}O\item 
+nnoremap <silent> <Leader>lin i\begin{itemize}[nosep]\end{itemize}O\item 
+nnoremap <silent> <Leader>li- i\begin{itemize}[label=--]\end{itemize}O\item 
+nnoremap <silent> <Leader>li-n i\begin{itemize}[label=--,nosep]\end{itemize}O\item 
 nnoremap <silent> <Leader>lq i\begin{equation}\end{equation}O
 nnoremap <silent> <Leader>l8q i\begin{equation*}\end{equation*}O
 nnoremap <silent> <Leader>la i\begin{align}\end{align}O
