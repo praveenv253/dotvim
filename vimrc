@@ -41,7 +41,7 @@ set ttimeoutlen=100
 "Set foldmethod to fold all lines of the same or higher indent level..."
 set foldmethod=indent
 "... but keep it turned off at startup"
-set nofoldenable
+set foldlevelstart=99
 "Set modeline, particularly for syntax-highlighting certain files correctly"
 set modeline
 "Treat all sh files as bash scripts for syntax highlighting"
