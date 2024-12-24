@@ -50,7 +50,7 @@ let g:is_bash = 1
 let g:tex_flavor = "latex"
 "Enable Powerline (assumes powerline has been installed using"
 "     pip3 install --user powerline-status"
-set rtp+=$HOME/.local/lib/python3.8/site-packages/powerline/bindings/vim
+set rtp+=$HOME/.local/lib/python3.10/site-packages/powerline/bindings/vim
 "Always show statusline"
 set laststatus=2
 "Change leader for vimtex insert mode mappings from '`' to '#'"
@@ -233,7 +233,7 @@ nnoremap <silent> <Leader>fs :%s/\s\+$//g<CR>
 
 "For spellcheck"
 nnoremap <silent> <Leader>ss
-			\ :setlocal spell spelllang=en_gb<CR>
+			\ :setlocal spell spelllang=en_us<CR>
 nnoremap <silent> <Leader>sa
 			\ :setlocal nospell<CR>
 
@@ -267,6 +267,8 @@ nnoremap <silent> <Leader>la i\begin{align}\end{align}O
 nnoremap <silent> <Leader>l8a i\begin{align*}\end{align*}O
 nnoremap <silent> <Leader>ls viw<ESC>`>a}<ESC>hviw<ESC>`<i\emph{<ESC>
 vnoremap <silent> <Leader>ls <ESC>`<i\emph{<ESC>`>6la}<ESC>
+nnoremap <silent> <Leader>lb viw<ESC>`>a}<ESC>hviw<ESC>`<i\textbf{<ESC>
+vnoremap <silent> <Leader>lb <ESC>`<i\textbf{<ESC>`>8la}<ESC>
 "Format Google Scholar citations"
 vmap <silent> <Leader>fc :s/^  /\t/g<CR>gv:s/=/ = /g<CR>gv:s/[{}]/"/g<CR><C-l>
 nmap <silent> <Leader>lt ^f{lgUl/\d<CR>4lgUl<C-l>
