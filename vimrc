@@ -33,8 +33,9 @@ set t_Co=16
 let g:Powerline_symbols = "fancy"
 "Ignore some file endings while expanding"
 set wildignore=*.o,*~,*.pyc,.git
-"New vertical windows appear on the right of the existing window"
+"New windows appear to the right of or below the existing window"
 set splitright
+set splitbelow
 "Set timeout values for mappings and keycodes"
 set timeoutlen=500
 set ttimeoutlen=100
@@ -129,7 +130,9 @@ map <silent> <Leader>[ :GundoToggle<CR>
 nnoremap <silent> <Leader>gg :GitGutterToggle<CR>
 
 "For toggling the taglist window on and off"
-map <silent> <Leader><CR> :TlistToggle<CR>
+"map <silent> <Leader><CR> :TlistToggle<CR>"
+"Search for the tags file recursing outwards until you hit root (/)"
+set tags=tags;/
 
 "For opening a new file quickly in a new tab from normal mode"
 nmap t :tabe 
@@ -211,7 +214,7 @@ vnoremap <C-Home> <Nop>
 
 "For switching paste mode on/off during insert"
 "Otherwise, indents will cascade"
-set pastetoggle=<F2>
+set pastetoggle=<F4>
 
 "For figuring out the highlight group under the cursor"
 map <Leader>h
