@@ -114,7 +114,13 @@ endif
 noremap <Leader>ww :w !sudo tee % >/dev/null<CR>
 
 "For toggling the NERDTree window on and off"
-map <Leader>] <plug>NERDTreeTabsToggle<CR>
+map <Leader>] :NERDTreeMirror<CR>:NERDTreeToggle<CR>
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 
 "For toggling the Gundo window on and off"
 map <silent> <Leader>[ :GundoToggle<CR>
