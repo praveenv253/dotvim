@@ -125,6 +125,9 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 "For toggling the Gundo window on and off"
 map <silent> <Leader>[ :GundoToggle<CR>
 
+"For toggling the git gutter on and off"
+nnoremap <silent> <Leader>gg :GitGutterToggle<CR>
+
 "For toggling the taglist window on and off"
 map <silent> <Leader><CR> :TlistToggle<CR>
 
@@ -254,12 +257,25 @@ endif
 au BufNewFile * :silent! exec ":0r ".$HOME."/.vim/templates/template.".&ft.
 			\ " | :normal Gdd$"
 
-"For setting the search match colour appropriately"
-highlight Search ctermbg=011 ctermfg=000
+"Creating an autocommand group to ensure this runs after loading plugins and"
+"loading the colorscheme"
+augroup CustomHighlights
+	autocmd!
 
-"For inverting colours on selection"
-highlight clear Visual
-highlight Visual cterm=reverse
+	"For setting the search match colour appropriately"
+	autocmd colorscheme,VimEnter * highlight Search ctermbg=011 ctermfg=000
+
+	"For inverting colours on selection"
+	autocmd colorscheme,VimEnter * highlight clear Visual
+	autocmd colorscheme,VimEnter * highlight Visual cterm=reverse
+
+	"For setting the git gutter colors properly"
+	autocmd colorscheme,VimEnter * highlight clear SignColumn
+	autocmd colorscheme,VimEnter * highlight GitGutterAdd ctermfg=2 ctermbg=0
+	autocmd colorscheme,VimEnter * highlight GitGutterChange ctermfg=3 ctermbg=0
+	autocmd colorscheme,VimEnter * highlight GitGutterDelete ctermfg=1 ctermbg=0
+	autocmd colorscheme,VimEnter * highlight GitGutterChangeDelete ctermfg=3 ctermbg=0
+augroup END
 
 "LaTeX shortcuts"
 nnoremap <silent> <Leader>le i\begin{enumerate}\end{enumerate}O\item 
