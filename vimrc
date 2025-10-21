@@ -56,6 +56,8 @@ set rtp+=$HOME/.local/lib/python3.10/site-packages/powerline/bindings/vim
 set laststatus=2
 "Change leader for vimtex insert mode mappings from '`' to '#'"
 let g:vimtex_imaps_leader = "#"
+"For fixing italics fonts within screen"
+set term=xterm-256color
 
 "Switch on syntax highlighting"
 syntax on
@@ -251,7 +253,7 @@ nnoremap <silent> <Leader>sa
 
 "For exceeding 80 characters in a line"
 if exists('+colorcolumn')
-	set colorcolumn=80
+	set colorcolumn=100
 else
 	au BufWinEnter * let w:m2=matchadd('ColorColumn', '\%>80v.\+', -1)
 endif
