@@ -27,6 +27,8 @@ set encoding=utf-8
 "Enable characters to demarcate the kind of whitespace used"
 set listchars=extends:»,precedes:«,tab:·\ ,trail:◀
 set list
+" Set the separator character for separating vertical windows
+set fillchars+=vert:│
 "Use 16 colours in the terminal"
 set t_Co=16
 "Use fancy symbols in powerline"

@@ -22,6 +22,7 @@ hi Ignore                           ctermfg=008
 hi Error                            ctermfg=124
 hi Todo                             ctermfg=000 ctermbg=011
 hi MatchParen            cterm=bold ctermfg=160 ctermbg=none
+hi VertSplit             cterm=none ctermfg=252 ctermbg=none
 
 " Common groups that link to default highlighting.
 " You can specify other highlighting easily.
