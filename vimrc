@@ -20,8 +20,6 @@ set hlsearch
 set ignorecase
 "...but only ignore if the search string is all lowercase"
 set smartcase
-"Always keep status bar on"
-set laststatus=2
 "Set encoding to utf-8"
 set encoding=utf-8
 "Enable characters to demarcate the kind of whitespace used"
@@ -56,6 +54,10 @@ let g:tex_flavor = "latex"
 set rtp+=$HOME/.local/lib/python3.10/site-packages/powerline/bindings/vim
 "Always show statusline"
 set laststatus=2
+"First run `$ uv tool install ruff@latest` in a shell
+"Also make sure you have "the ALE plugin
+let g:ale_linters = { "python": ["ruff"] }
+let g:ale_fixers = { "python": ["ruff", "ruff_format"] }
 "Change leader for vimtex insert mode mappings from '`' to '#'"
 let g:vimtex_imaps_leader = "#"
 "For fixing italics fonts within screen"
@@ -282,6 +284,8 @@ augroup CustomHighlights
 	autocmd colorscheme,VimEnter * highlight GitGutterChange ctermfg=3 ctermbg=0
 	autocmd colorscheme,VimEnter * highlight GitGutterDelete ctermfg=1 ctermbg=0
 	autocmd colorscheme,VimEnter * highlight GitGutterChangeDelete ctermfg=3 ctermbg=0
+
+	autocmd colorscheme,VimEnter * highlight ALEWarning cterm=italic ctermbg=235
 augroup END
 
 "LaTeX shortcuts"

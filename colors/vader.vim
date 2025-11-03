@@ -20,9 +20,12 @@ hi Function                         ctermfg=039
 hi Operator                         ctermfg=026
 hi Ignore                           ctermfg=008
 hi Error                            ctermfg=124
-hi Todo                             ctermfg=000 ctermbg=011
+hi Todo                  cterm=bold ctermfg=011 ctermbg=none
 hi MatchParen            cterm=bold ctermfg=160 ctermbg=none
 hi VertSplit             cterm=none ctermfg=252 ctermbg=none
+hi SpellBad         cterm=underline ctermfg=160 ctermbg=none
+hi SpellCap         cterm=underline ctermfg=207 ctermbg=none
+hi SpellLocal       cterm=underline ctermfg=051 ctermbg=none
 
 " Common groups that link to default highlighting.
 " You can specify other highlighting easily.
