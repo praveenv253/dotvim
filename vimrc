@@ -58,6 +58,9 @@ set laststatus=2
 "Also make sure you have "the ALE plugin
 let g:ale_linters = { "python": ["ruff"] }
 let g:ale_fixers = { "python": ["ruff", "ruff_format"] }
+"Set options for vim-slime
+let g:slime_target = "vimterminal"
+let g:slime_python_ipython = 1
 "Change leader for vimtex insert mode mappings from '`' to '#'"
 let g:vimtex_imaps_leader = "#"
 "For fixing italics fonts within screen"
