@@ -63,6 +63,9 @@ let g:slime_target = "vimterminal"
 let g:slime_python_ipython = 1
 "Change leader for vimtex insert mode mappings from '`' to '#'"
 let g:vimtex_imaps_leader = "#"
+"Set tagbar position
+let g:tagbar_position = 'leftabove vertical'
+let g:tagbar_indent = 1
 "For fixing italics fonts within screen"
 set term=xterm-256color
 
@@ -126,11 +129,11 @@ noremap <Leader>ww :w !sudo tee % >/dev/null<CR>
 "For toggling the NERDTree window on and off"
 map <Leader>] :NERDTreeMirror<CR>:NERDTreeToggle<CR>
 " Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
+"autocmd VimEnter * NERDTree | wincmd p
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
 " Close the tab if NERDTree is the only window remaining in it.
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
+"autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 
 "For toggling the Gundo window on and off"
 map <silent> <Leader>[ :GundoToggle<CR>
@@ -138,8 +141,8 @@ map <silent> <Leader>[ :GundoToggle<CR>
 "For toggling the git gutter on and off"
 nnoremap <silent> <Leader>gg :GitGutterToggle<CR>
 
-"For toggling the taglist window on and off"
-"map <silent> <Leader><CR> :TlistToggle<CR>"
+"For toggling the tagbar window on and off"
+map <silent> <Leader><CR> :TagbarToggle<CR>"
 "Search for the tags file recursing outwards until you hit root (/)"
 set tags=tags;/
 
@@ -290,6 +293,8 @@ augroup CustomHighlights
 
 	autocmd colorscheme,VimEnter * highlight ALEWarning cterm=italic ctermbg=235
 augroup END
+
+autocmd BufEnter * nested :call tagbar#autoopen(0)
 
 "LaTeX shortcuts"
 nnoremap <silent> <Leader>le i\begin{enumerate}\end{enumerate}O\item 

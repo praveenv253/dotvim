@@ -84,6 +84,20 @@ hi link texSubscript     Special
 hi link texSuperscript   Special
 hi link texZone          Function
 
+" Markdown-specific
+hi      markdownBold              cterm=bold
+hi      markdownItalic            cterm=italic
+hi link markdownCode              Identifier
+hi link markdownCodeDelimiter     Identifier
+hi link markdownH1                Statement
+hi link markdownH2                Statement
+hi link markdownH3                Statement
+hi link markdownH4                Statement
+hi link markdownH1Delimiter       Constant
+hi link markdownH2Delimiter       Constant
+hi link markdownH3Delimiter       Constant
+hi link markdownH4Delimiter       Constant
+
 " Vim-specific
 hi link VimGroup         Identifier
 hi link VimHiGroup       Identifier
@@ -91,6 +105,12 @@ hi link VimHiCterm       String
 hi link VimHiCtermFgBg   String
 hi link VimHiAttrib      Number
 hi link VimOption        Identifier
+
+" Vim Tagbar
+hi link TagbarScope               Function
+hi link TagbarAccessPublic        String
+hi link TagbarType                Statement
+hi link TagbarSignature           Comment
 
 " Miscellaneous
 hi LineNr                ctermfg=238
