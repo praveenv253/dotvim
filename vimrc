@@ -59,14 +59,17 @@ set laststatus=2
 let g:ale_linters = { "python": ["ruff"] }
 let g:ale_fixers = { "python": ["ruff", "ruff_format"] }
 "Set options for vim-slime
-let g:slime_target = "vimterminal"
+let g:slime_target = "tmux"
 let g:slime_python_ipython = 1
 "Change leader for vimtex insert mode mappings from '`' to '#'"
 let g:vimtex_imaps_leader = "#"
 "Set tagbar position
 let g:tagbar_position = 'leftabove vertical'
 let g:tagbar_indent = 1
-"For fixing italics fonts within screen"
+"Force xterm-256color so vim recognizes Ctrl+Arrow, Shift+Arrow, etc.
+"Needed inside tmux/screen because vim 8.2 doesn't fully understand the
+"tmux-256color terminal type. Safe because tmux is xterm-compatible for
+"key sequences.
 set term=xterm-256color
 
 "Switch on syntax highlighting"
@@ -142,7 +145,7 @@ map <silent> <Leader>[ :GundoToggle<CR>
 nnoremap <silent> <Leader>gg :GitGutterToggle<CR>
 
 "For toggling the tagbar window on and off"
-map <silent> <Leader><CR> :TagbarToggle<CR>"
+map <silent> <Leader><CR> :TagbarToggle<CR>
 "Search for the tags file recursing outwards until you hit root (/)"
 set tags=tags;/
 
@@ -246,7 +249,7 @@ nnoremap <silent> <Leader>fc
 nnoremap <silent> <Leader>fy :%!autopep8 -<CR>
 
 "For autoformatting a file using par with a width of 79 characters"
-set formatprg="par 79"
+set formatprg="par 100"
 "For formatting the whole document"
 nnoremap <Leader>fa ggVGgq
 "For formatting the current paragraph"
@@ -294,8 +297,6 @@ augroup CustomHighlights
 	autocmd colorscheme,VimEnter * highlight ALEWarning cterm=italic ctermbg=235
 augroup END
 
-autocmd BufEnter * nested :call tagbar#autoopen(0)
-
 "LaTeX shortcuts"
 nnoremap <silent> <Leader>le i\begin{enumerate}\end{enumerate}O\item 
 nnoremap <silent> <Leader>li i\begin{itemize}\end{itemize}O\item 
@@ -317,3 +318,28 @@ nmap <silent> <Leader>lt ^f{lgUl/\d<CR>4lgUl<C-l>
 "Shortcut for nonumber"
 nnoremap <Leader>n :set number<CR>
 nnoremap <Leader>nn :set nonumber<CR>
+
+" =========================================================================
+" Claude Code integration (requires tmux)
+" =========================================================================
+"Send a code reference to the Claude Code tmux pane and switch focus to it
+"Usage: visual-select lines, press \cc
+"Sends: @relative/path/to/file:startline-endline
+function! SendToClaudeCode()
+	let l:file = expand('%:.')
+	let l:start = line("'<")
+	let l:end = line("'>")
+	if l:start == l:end
+		let l:ref = '@' . l:file . ':' . l:start
+	else
+		let l:ref = '@' . l:file . ':' . l:start . '-' . l:end
+	endif
+	" Send the reference to the Claude Code pane (pane index 2 in dev layout)
+	" and shift focus to it
+	let l:pane = get(g:, 'claude_code_pane', ':.2')
+	call system('tmux send-keys -t ' . shellescape(l:pane) . ' '
+				\ . shellescape(l:ref) . ' && tmux select-pane -t '
+				\ . shellescape(l:pane))
+endfunction
+
+vnoremap <silent> <Leader>cc :<C-u>call SendToClaudeCode()<CR>
